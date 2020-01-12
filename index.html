@@ -1,14 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Coding Quiz</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
+
 <body>
- 
-    
-<script src="./script.js"></script>
+    <div id="header">
+        <div class="row">
+            <div id="highscore-button" class="col-md-3">
+                <button type="button" class="btn btn-light">View Highscore</button>
+            </div>
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-3">
+                <div id="timer"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <h1>Coding Quiz</h1>
+        <div id="start">
+            <p>Click the start quiz button and you will be presented with 5 multiple choice questions. You are timed so
+                answer as quickly as you can!</p>
+            <button id="startButton" type="button" class="btn btn-primary btn-lg">Start Quiz</button>
+        </div>
+        <div id="quiz" class="hide">
+            <h3 id="question">question</h3>
+            <button type="button" id="0" value="0" class="btn btn-primary btn-lg btn-block">Block level button</button>
+            <button type="button" id="1" value="1" class="btn btn-secondary btn-lg btn-block">Block level
+                button</button>
+            <button type="button" id="2" value="2" class="btn btn-primary btn-lg btn-block">Block level button</button>
+            <button type="button" id="3" value="3" class="btn btn-secondary btn-lg btn-block">Block level
+                button</button>
+        </div>
+        <div id="results" class="hide">
+            <h1>All done!</h1>
+            <h3 id="final-score"></h3>
+            <p>Type your initials here to be added to the highscore list:</p>
+            <input id="initials-input">
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </div>
+        <div id="highscore-list" class="hide">
+            highscore list
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="./questions.js"></script>
+    <script src="./script.js"></script>
 </body>
+
 </html>

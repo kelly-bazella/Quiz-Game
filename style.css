@@ -1,0 +1,13 @@
+.container{
+    text-align:center;
+}
+h1{
+    display:inline-block;
+}
+.hide {
+    display:none;
+}
+.btn{
+    margin-top:10px;
+    margin-left: 10px;
+}
