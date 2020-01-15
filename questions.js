@@ -1,22 +1,22 @@
 var questions = [
     {
       title: "Commonly used data types DO NOT include:",
-      choices: ["strings", "booleans", "alerts", "numbers"],
-      answer: "alerts"
+      choices: ["Strings", "Booleans", "Alerts", "Numbers"],
+      answer: "Alerts"
     },
     {
       title: "The condition in an if / else statement is enclosed within ____.",
-      choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-      answer: "parentheses"
+      choices: ["Quotes", "Curly brackets", "Parentheses", "Square brackets"],
+      answer: "Parentheses"
     },
     {
         title: "Inside which HTML element do we put JavaScript?",
         choices: ["<script>", "<js>", "<javascript>","scripting"],
-        answer: "script"
+        answer: "<script>"
     },
     {
         title:"What is the correct syntax for referring to an external script called xxx.js?",
-        choices:["<script href='xxx.js'>", "<script name='xxx.js'>","<script src='xxx.js'","<script src='xxx.javascript'"],
+        choices:["<script href='xxx.js'>", "<script name='xxx.js'>","<script src='xxx.js'>","<script src='xxx.javascript'"],
         answer: "<script src='xxx.js'>"
     },
     {
@@ -26,7 +26,7 @@ var questions = [
     },
     {
         title:"How do you create a function in JavaScript?",
-        choices:["function myFunction()", "function= myFunction","function:myFuncation()", "function var= myFunction"],
+        choices:["function myFunction()", "function= myFunction","function:myFunction()", "function var= myFunction"],
         answer: "function myFunction()"
     }
   ];

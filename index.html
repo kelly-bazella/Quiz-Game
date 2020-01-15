@@ -13,8 +13,8 @@
 <body>
     <div id="header">
         <div class="row">
-            <div id="highscore-button" class="col-md-3">
-                <button type="button" class="btn btn-light">View Highscore</button>
+            <div class="col-md-3">
+                <button type="button" id="highscore-button" class="btn btn-light">View Highscore</button>
             </div>
             <div class="col-md-6">
             </div>
@@ -44,8 +44,9 @@
             <h1>All done!</h1>
             <h3 id="final-score"></h3>
             <p>Type your initials here to be added to the highscore list:</p>
-            <input id="initials-input">
-            <input class="btn btn-primary" type="submit" value="Submit">
+            <input class="initials-input">
+            <p><input class="btn btn-primary" id="submit-button" type="submit" value="Submit"></p>
+            <input class="btn btn-primary" id="go-back" type="submit" value="Go Back">
         </div>
         <div id="highscore-list" class="hide">
             highscore list
