@@ -9,9 +9,14 @@ var highScoreButton=document.getElementById("highscore-button");
 var goBackButton = document.getElementById("go-back");
 var submitButton= document.getElementById("submit-button");
 var initialsInput = document.querySelector("#initial-input")
+var optionOne = document.getElementById("0");
+var optionTwo = document.getElementById("1");
+var optionThree = document.getElementById("2");
+var optionFour = document.getElementById("3");
 var score = 100;
 var timeInterval;
 var iterator = 0;
+
 
 //functions
 function scoreKeeper (){
@@ -22,7 +27,7 @@ function scoreKeeper (){
         clearInterval(timeInterval);
     }
 }
-//questionObj is one of question in array
+//questionObj is one of the question in array
 function loadQuestion(questionObj){
     document.getElementById("question").innerText=questionObj.title
     for(var i = 0;i<questionObj.choices.length; i++){
@@ -56,19 +61,11 @@ submitButton.addEventListener("click", function(event){
 
 // if wrong, decrement time by 10 seconds
 
-//if time runs out or user answer all questions
-
-//stop timer after last question, store that time number, print number as score
+//stop timer after last question or stop quiz when time runs out, store that time number, print number as score
 
 document.querySelectorAll(".btn-block").forEach(function(element){
     element.addEventListener("click", function(event){
         // console.log(event.target.innerText);
-        if(event.target.innerText===questions[i].answer){
-            alert("Correct!!");
-        }
-        else if(event.target.innerText!==questions[i].answer){
-            alert("WRONG!!!");
-        }
         iterator++;
         if (iterator<=4){
             loadQuestion(questions[iterator]);
@@ -77,4 +74,34 @@ document.querySelectorAll(".btn-block").forEach(function(element){
             resultSection.classList.remove("hide");
         }
     })
+})
+
+// when a button is clicked, it takes the button the user clicked and looks at questions.answer to see if it's the correct answer
+optionOne.addEventListener("click", function(){
+    if(optionOne.innerText!==questions[iterator].answer){
+        score-=10;
+    }else{
+        console.log("incorrect")
+    }
+})
+optionTwo.addEventListener("click", function(){
+    if(optionTwo.innerText!==questions[iterator].answer){
+        score-=10;
+    }else{
+        console.log("incorrect")
+    }
+})
+optionThree.addEventListener("click", function(){
+    if(optionThree.innerText!==questions[iterator].answer){
+        score-=10;
+    }else{
+        console.log("incorrect")
+    }
+})
+optionFour.addEventListener("click", function(){
+    if(optionFour.innerText!==questions[iterator].answer){
+        score-=10;
+    }else{
+        console.log("incorrect")
+    }
 })
