@@ -9,7 +9,6 @@ var highScoreButton = document.getElementById("highscore-button");
 var finalScore = document.getElementById("final-score");
 var goBackButton = document.getElementById("go-back");
 var submitButton = document.getElementById("submit-button");
-var initialsInput = document.querySelector("#initial-input")
 var optionOne = document.getElementById("0");
 var optionTwo = document.getElementById("1");
 var optionThree = document.getElementById("2");
@@ -34,13 +33,16 @@ function loadQuestion(questionObj) {
         document.getElementById(i).innerText = questionObj.choices[i];
     }
 }
-function stopTimer() {
 
-}
 //click events
 highScoreButton.addEventListener("click", function () {
     startSection.classList.add("hide");
     highScoreSection.classList.remove("hide");
+    for(var i = 0; i<localStorage.length; i++){
+        var user = localStorage.getItem("initials");
+        highScoreSection.append(user);
+
+    }
 })
 startButton.addEventListener("click", function () {
     startSection.classList.add("hide");
@@ -54,11 +56,14 @@ goBackButton.addEventListener("click", function () {
 })
 submitButton.addEventListener("click", function (event) {
     event.preventDefault();
-    var user = { initials: initialsInput.value.trim() }
-    if (user.initials === "") {
-        console.log(initialsInput)
+    var highscoreInitials = document.querySelector(".initials-input").value;
+    var user = {initials: highscoreInitials}
+    if (user.highscoreInitials === "") {
         alert("Error: You have to enter your initials!");
-    } else { alert("Success! You have been added to the highscores list!") }
+    } else {
+        alert("Success! You have been added to the highscores list!");
+        localStorage.setItem("initials", highscoreInitials)
+    }
 })
 
 //stop timer after last question or stop quiz when time runs out, store that time number, print number as score
@@ -109,7 +114,3 @@ optionFour.addEventListener("click", function () {
         console.log("correct")
     }
 })
-
-
-
-
