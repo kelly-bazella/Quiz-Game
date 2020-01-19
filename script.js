@@ -26,22 +26,30 @@ function scoreKeeper() {
         resultSection.classList.remove("hide");
     }
 }
-//questionObj is one of the question in array
+function reset() {
+    score = 100;
+    iterator = 0;
+    highScoreSection.innerHTML = "";
+}
 function loadQuestion(questionObj) {
     document.getElementById("question").innerText = questionObj.title
     for (var i = 0; i < questionObj.choices.length; i++) {
         document.getElementById(i).innerText = questionObj.choices[i];
     }
 }
-
-//click events
 highScoreButton.addEventListener("click", function () {
     startSection.classList.add("hide");
     highScoreSection.classList.remove("hide");
-    for(var i = 0; i<localStorage.length; i++){
-        var user = localStorage.getItem("initials");
-        highScoreSection.append(user);
-
+    var keys = Object.keys(localStorage);
+    for (var i = 0; i < keys.length; i++) {
+        var user = keys[i];
+        var endScore = localStorage.getItem(user);
+        var userElement = document.createElement("div");
+        var scoreElement = document.createElement("div");
+        scoreElement.innerText = endScore
+        userElement.innerText = user
+        highScoreSection.appendChild(userElement);
+        highScoreSection.appendChild(scoreElement);
     }
 })
 startButton.addEventListener("click", function () {
@@ -53,26 +61,29 @@ startButton.addEventListener("click", function () {
 goBackButton.addEventListener("click", function () {
     startSection.classList.remove("hide");
     resultSection.classList.add("hide");
+    reset();
 })
 submitButton.addEventListener("click", function (event) {
     event.preventDefault();
     var highscoreInitials = document.querySelector(".initials-input").value;
-    var user = {initials: highscoreInitials}
-    if (user.highscoreInitials === "") {
+    if (highscoreInitials === "") {
         alert("Error: You have to enter your initials!");
     } else {
         alert("Success! You have been added to the highscores list!");
-        localStorage.setItem("initials", highscoreInitials)
+        localStorage.setItem(highscoreInitials, score)
     }
 })
-
-//stop timer after last question or stop quiz when time runs out, store that time number, print number as score
-
 document.querySelectorAll(".btn-block").forEach(function (element) {
     element.addEventListener("click", function (event) {
-        // console.log(event.target.innerText);
+        console.log(event.target.innerText);
+        if (event.target.innerText !== questions[iterator].answer) {
+            score -= 10;
+            timer.innerText = score;
+        } else {
+            console.log("correct")
+        }
         iterator++;
-        if (iterator <= 4) {
+        if (iterator < questions.length) {
             loadQuestion(questions[iterator]);
         }
         else {
@@ -81,36 +92,4 @@ document.querySelectorAll(".btn-block").forEach(function (element) {
             clearInterval(timeInterval);
         }
     })
-})
-
-optionOne.addEventListener("click", function () {
-    if (optionOne.innerText !== questions[iterator].answer) {
-        score -= 10;
-    } else {
-        console.log("correct")
-    }
-})
-optionTwo.addEventListener("click", function () {
-    if (optionTwo.innerText !== questions[iterator].answer) {
-        score -= 10;
-        console.log(optionOne.innerText)
-    } else {
-        console.log("correct")
-    }
-})
-optionThree.addEventListener("click", function () {
-    if (optionThree.innerText !== questions[iterator].answer) {
-        score -= 10;
-        console.log(optionOne.innerText)
-    } else {
-        console.log("correct")
-    }
-})
-optionFour.addEventListener("click", function () {
-    if (optionFour.innerText !== questions[iterator].answer) {
-        score -= 10;
-        console.log(optionOne.innerText)
-    } else {
-        console.log("correct")
-    }
 })
