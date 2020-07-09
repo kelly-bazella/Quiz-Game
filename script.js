@@ -37,6 +37,7 @@ function loadQuestion(questionObj) {
         document.getElementById(i).innerText = questionObj.choices[i];
     }
 }
+
 highScoreButton.addEventListener("click", function () {
     startSection.classList.add("hide");
     highScoreSection.classList.remove("hide");
