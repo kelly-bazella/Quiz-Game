@@ -10,6 +10,8 @@ This is a functional quiz game built with Javascript. The user clicks start and 
 
 If the user answers incorrectly, 10 "points" or seconds is taken off their score. If they get through all the questions they are taken to a screen that gives them their score where they can enter their initials and be added to the highscore list. 
 
+Code for scoring below. An iterator is initiated at 0, and the score is initiated at 100. 
+
 ![](scoring.PNG)
 
 ## GIF
